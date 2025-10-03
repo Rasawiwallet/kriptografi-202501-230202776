@@ -38,9 +38,9 @@ Integritas berkaitan dengan keotentikan dan kebenaran informasi. Artinya, inform
 Ketersediaan menunjukkan bahwa informasi harus tersedia dan dapat diakses oleh pihak yang berwenang ketika diperlukan. Ini berarti sistem dan infrastruktur harus dirancang dan dikelola sedemikian rupa sehingga dapat menanggapi permintaan akses informasi dengan cepat dan tanpa gangguan yang signifikan.
 
 ## QUIZ ##
-1.Claude Elwood Shannon
-2.RSA (Rivest-Shamir-Adleman) dan ECC (Kriptografi Kurva Eliptik)
-3.
+1. Claude Elwood Shannon
+2. RSA (Rivest-Shamir-Adleman) dan ECC (Kriptografi Kurva Eliptik)
+3. 
 Perbedaan Kriptografi Klasik dan Modern
 1. Basis Operasi
 
