@@ -60,9 +60,9 @@ Perbedaan Kriptografi Klasik dan Modern
 
     Modern: Menggunakan dua jenis sistem kunci:
 
-        Kriptografi Simetris (contoh: AES): Seperti kriptografi klasik, tapi dengan kunci dan algoritma yang jauh lebih rumit.
+    ~ Kriptografi Simetris (contoh: AES): Seperti kriptografi klasik, tapi dengan kunci dan algoritma yang jauh lebih rumit.
 
-        Kriptografi Asimetris/Kunci Publik (contoh: RSA, ECC): Menggunakan sepasang kunci (publik dan privat). Kunci publik bisa dibagikan secara bebas untuk enkripsi, sementara hanya pemilik kunci privat yang bisa melakukan dekripsi. Ini memecahkan masalah distribusi kunci yang ada di era klasik.
+    ~ Kriptografi Asimetris/Kunci Publik (contoh: RSA, ECC): Menggunakan sepasang kunci (publik dan privat). Kunci publik bisa dibagikan secara bebas untuk enkripsi, sementara hanya pemilik kunci privat yang bisa melakukan dekripsi. Ini memecahkan masalah distribusi kunci yang ada di era klasik.
 
 4. Tingkat Keamanan
 
