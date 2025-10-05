@@ -1,4 +1,4 @@
-# Laporan Praktikum Kriptografi
+# Laporan Minggu 1 - Intro CIA
 Minggu ke-: I  
 Topik: [Week 1 Intro CIA]  
 Nama: [Ramzi Selpora Widiyanto]  
