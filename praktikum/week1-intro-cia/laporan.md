@@ -1,4 +1,9 @@
-# Laporan Minggu 1 - Intro CIA
+# Laporan Praktikum Kriptografi
+Minggu ke-: I  
+Topik: [Week 1 Intro CIA]  
+Nama: [Ramzi Selpora Widiyanto]  
+NIM: [230202776]  
+Kelas: [5IKKA]  
 
 # Ringkasan Sejarah Kriptografi
 --Era Kriptografi Klasik: Seni Kerahasiaan Manual--
