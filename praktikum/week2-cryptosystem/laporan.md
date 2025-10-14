@@ -120,17 +120,15 @@ Dari hasil program:
 
 ## 9. Daftar Pustaka
 - Katz, J., & Lindell, Y. *Introduction to Modern Cryptography*.  
-- Stallings, W. *Cryptography and Network Security*.  )
+- Stallings, W. *Cryptography and Network Security*.
 
 ---
 
 ## 10. Commit Log
-(Tuliskan bukti commit Git yang relevan.  
-Contoh:
 ```
-commit abc12345
+commit week2-cryptosystem
 Author: Ramzi Selpora Widiyanto <rasawi46rsw@gmail.com>
 Date:   2025-10-14
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+    week2-cryptosystem: implementasi Caesar Cipher dan laporan
 ```
