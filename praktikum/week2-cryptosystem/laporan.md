@@ -99,7 +99,7 @@ Hasil eksekusi program Caesar Cipher:
 -CipherText (Teks Terenkripsi)
 -Algoritma Enkripsi
 -Algoritma Dekripsi
-                -Kunci (Key)
+-Kunci (Key)
 - Pertanyaan 2: 
 Kelebihan Simetris :
 -Proses lebih cepat dan efisien.
