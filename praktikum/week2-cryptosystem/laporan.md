@@ -1,14 +1,17 @@
 # Laporan Praktikum Kriptografi
-Minggu ke-: X  
-Topik: [judul praktikum]  
-Nama: [Nama Mahasiswa]  
-NIM: [NIM Mahasiswa]  
-Kelas: [Kelas]  
+Minggu ke-: 2  
+Topik: [CRYPTOSYSTEM]  
+Nama: [Ramzi Selpora Widiyanto]  
+NIM: [230202776]  
+Kelas: [5IKKA]  
 
 ---
 
 ## 1. Tujuan
-(Tuliskan tujuan pembelajaran praktikum sesuai modul.)
+Setelah mengikuti praktikum ini, mahasiswa diharapkan mampu:
+1. Mengidentifikasi komponen dasar kriptosistem (plaintext, ciphertext, kunci, algoritma).
+2. Menggambarkan proses enkripsi dan dekripsi sederhana.
+3. Mengklasifikasikan jenis kriptosistem (simetris dan asimetris)
 
 ---
 
@@ -27,25 +30,43 @@ Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
 ---
 
 ## 4. Langkah Percobaan
-(Tuliskan langkah yang dilakukan sesuai instruksi.  
-Contoh format:
-1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
+1. Membuat file `simple_crypto.py` di folder `praktikum/week2-cryptosystem/src/`.
 2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python caesar_cipher.py`.)
+3. Menjalankan program dengan perintah `python simple_crypto.py`.
 
 ---
 
 ## 5. Source Code
-(Salin kode program utama yang dibuat atau dimodifikasi.  
-Gunakan blok kode:
+def encrypt(plaintext, key):
+    result = ""
+    for char in plaintext:
+        if char.isalpha():
+            shift = 65 if char.isupper() else 97
+            result += chr((ord(char) - shift + key) % 26 + shift)
+        else:
+            result += char
+    return result
 
-```python
-# contoh potongan kode
-def encrypt(text, key):
-    return ...
-```
-)
+def decrypt(ciphertext, key):
+    result = ""
+    for char in ciphertext:
+        if char.isalpha():
+            shift = 65 if char.isupper() else 97
+            result += chr((ord(char) - shift - key) % 26 + shift)
+        else:
+            result += char
+    return result
 
+if __name__ == "__main__":
+    message = "<230202776><Ramzi Selpora Widiyanto>"
+    key = 5
+
+    enc = encrypt(message, key)
+    dec = decrypt(enc, key)
+
+    print("Plaintext :", message)
+    print("Ciphertext:", enc)
+    print("Decrypted :", dec)
 ---
 
 ## 6. Hasil dan Pembahasan
