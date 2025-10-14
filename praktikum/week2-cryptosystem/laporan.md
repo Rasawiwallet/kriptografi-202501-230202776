@@ -46,6 +46,7 @@ Penerapan cipher klasik dan aritmetika modular tidak hanya penting untuk memaham
 ---
 
 ## 5. Source Code
+'''
 def encrypt(plaintext, key):
     result = ""
     for char in plaintext:
@@ -76,6 +77,7 @@ if __name__ == "__main__":
     print("Plaintext :", message)
     print("Ciphertext:", enc)
     print("Decrypted :", dec)
+'''
 ---
 
 ## 6. Hasil dan Pembahasan
@@ -86,7 +88,7 @@ if __name__ == "__main__":
 
 Hasil eksekusi program Caesar Cipher:
 
-![Hasil Eksekusi](screenshots/output.png)
+![Hasil Eksekusi](screenshots/hasil_eksekusi.png)
 ![Hasil Input](screenshots/input.png)
 ![Hasil Output](screenshots/output.png)
 )
