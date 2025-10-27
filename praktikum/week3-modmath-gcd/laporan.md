@@ -15,8 +15,12 @@ Setelah mengikuti praktikum ini, mahasiswa diharapkan mampu:
 ---
 
 ## 2. Dasar Teori
-Ringkas teori relevan (cukup 2–3 paragraf).  
+Aritmetika Modular adalah sistem operasi matematika yang bekerja berdasarkan sisa hasil bagi suatu bilangan terhadap modulus tertentu. Dalam bentuk umum, dua bilangan a dan b dikatakan kongruen terhadap modulus n jika 
+a≡b(modn), artinya n membagi selisih (a−b). Aritmetika ini digunakan dalam berbagai bidang seperti kriptografi, teori bilangan, dan komputasi karena memungkinkan perhitungan besar menjadi lebih efisien dengan hanya memperhatikan sisanya.
 
+GCD (Greatest Common Divisor) atau FPB (Faktor Persekutuan Terbesar) dari dua bilangan adalah bilangan bulat terbesar yang dapat membagi keduanya tanpa sisa. Konsep GCD erat kaitannya dengan aritmetika modular, misalnya dalam mencari inverse modulo, di mana invers suatu bilangan a terhadap modulus n hanya ada jika gcd(a,n)=1. Perhitungan GCD umumnya dilakukan dengan algoritma Euclidean, yang sangat efisien dan sering digunakan dalam sistem kriptografi seperti RSA.
+
+Bilangan Prima adalah bilangan yang hanya memiliki dua faktor, yaitu 1 dan dirinya sendiri. Bilangan prima menjadi dasar dari banyak algoritma dalam keamanan komputer karena sifat faktorisasi yang sulit (contohnya dalam RSA dan Diffie-Hellman). Salah satu aplikasi lanjutannya adalah logaritma diskrit, yaitu mencari eksponen x dalam persamaan ax≡b(modp), yang merupakan masalah sulit untuk diselesaikan ketika p adalah bilangan prima besar—menjadi dasar keamanan banyak sistem kriptografi modern.
 ---
 
 ## 3. Alat dan Bahan
