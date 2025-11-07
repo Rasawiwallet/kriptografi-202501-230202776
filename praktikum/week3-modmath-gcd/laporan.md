@@ -158,12 +158,11 @@ Contoh:
 ---
 
 ## 10. Commit Log
-(Tuliskan bukti commit Git yang relevan.  
-Contoh:
+
 ```
 commit week3-modmath-gcd
 Author: Ramzi Selpora Widiyanto <rasawi46rsw@gmail.com>
 Date:   2025-11-07
 
-    week3-modmath-gcd: Aritmetika Modular, GCD, Bilangan Prima, Logaritma Diskrit)
+    week3-modmath-gcd: Aritmetika Modular, GCD, Bilangan Prima, Logaritma Diskrit
 ```
