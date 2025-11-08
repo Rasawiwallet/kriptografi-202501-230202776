@@ -1,6 +1,6 @@
 # Laporan Praktikum Kriptografi
 Minggu ke-: 4
-Topik: []  
+Topik: [Entropy & Unicity Distance (Evaluasi Kekuatan Kunci dan Brute Force)]  
 Nama: [Ramzi Selpora Widiyanto ]  
 NIM: [230202776]  
 Kelas: [5 IKKA]  
@@ -19,9 +19,13 @@ Setelah mengikuti praktikum ini, mahasiswa diharapkan mampu:
 ---
 
 ## 2. Dasar Teori
-(Ringkas teori relevan (cukup 2–3 paragraf).  
-Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
+Entropy dalam kriptografi menggambarkan tingkat ketidakpastian atau keacakan dari sebuah kunci. Semakin tinggi nilai entropi, semakin sulit bagi penyerang untuk menebak atau memprediksi kunci tersebut. Entropi diukur dalam bit, dan kunci dengan entropi n bit berarti ada 2n kemungkinan kombinasi. Misalnya, kunci 128-bit memiliki 2pangkat128 2
+128
+ kemungkinan, yang membuat serangan brute force (mencoba semua kombinasi) secara praktis mustahil dengan teknologi saat ini. Oleh karena itu, entropi menjadi ukuran utama untuk menilai kekuatan suatu sistem kriptografi terhadap penebakan kunci.
 
+Unicity Distance adalah konsep yang menunjukkan berapa banyak data terenkripsi (ciphertext) yang dibutuhkan agar penyerang dapat secara unik menentukan kunci yang digunakan. Nilai ini bergantung pada panjang kunci dan redundansi informasi dari pesan asli. Jika ciphertext yang tersedia lebih panjang dari unicity distance, maka secara teoritis kunci dapat ditemukan dengan analisis statistik, bukan hanya brute force.
+
+Dalam konteks evaluasi kekuatan kunci, kombinasi antara entropi tinggi dan unicity distance yang besar memastikan sistem lebih tahan terhadap serangan. Kunci dengan entropi rendah mudah ditebak, sedangkan sistem dengan unicity distance kecil dapat dipecahkan dengan sedikit ciphertext. Oleh karena itu, pemilihan panjang kunci yang memadai dan algoritma dengan distribusi keacakan yang baik sangat penting untuk menjaga keamanan kriptografi modern.
 ---
 
 ## 3. Alat dan Bahan
