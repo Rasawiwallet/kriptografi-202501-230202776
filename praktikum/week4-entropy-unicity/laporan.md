@@ -19,9 +19,7 @@ Setelah mengikuti praktikum ini, mahasiswa diharapkan mampu:
 ---
 
 ## 2. Dasar Teori
-Entropy dalam kriptografi menggambarkan tingkat ketidakpastian atau keacakan dari sebuah kunci. Semakin tinggi nilai entropi, semakin sulit bagi penyerang untuk menebak atau memprediksi kunci tersebut. Entropi diukur dalam bit, dan kunci dengan entropi n bit berarti ada 2n kemungkinan kombinasi. Misalnya, kunci 128-bit memiliki 2pangkat128 2
-128
- kemungkinan, yang membuat serangan brute force (mencoba semua kombinasi) secara praktis mustahil dengan teknologi saat ini. Oleh karena itu, entropi menjadi ukuran utama untuk menilai kekuatan suatu sistem kriptografi terhadap penebakan kunci.
+Entropy dalam kriptografi menggambarkan tingkat ketidakpastian atau keacakan dari sebuah kunci. Semakin tinggi nilai entropi, semakin sulit bagi penyerang untuk menebak atau memprediksi kunci tersebut. Entropi diukur dalam bit, dan kunci dengan entropi n bit berarti ada 2n kemungkinan kombinasi. Misalnya, kunci 128-bit memiliki 2 pangkat128 kemungkinan, yang membuat serangan brute force (mencoba semua kombinasi) secara praktis mustahil dengan teknologi saat ini. Oleh karena itu, entropi menjadi ukuran utama untuk menilai kekuatan suatu sistem kriptografi terhadap penebakan kunci.
 
 Unicity Distance adalah konsep yang menunjukkan berapa banyak data terenkripsi (ciphertext) yang dibutuhkan agar penyerang dapat secara unik menentukan kunci yang digunakan. Nilai ini bergantung pada panjang kunci dan redundansi informasi dari pesan asli. Jika ciphertext yang tersedia lebih panjang dari unicity distance, maka secara teoritis kunci dapat ditemukan dengan analisis statistik, bukan hanya brute force.
 
@@ -37,11 +35,10 @@ Dalam konteks evaluasi kekuatan kunci, kombinasi antara entropi tinggi dan unici
 ---
 
 ## 4. Langkah Percobaan
-(Tuliskan langkah yang dilakukan sesuai instruksi.  
-Contoh format:
-1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
+
+1. Membuat file masing-masing source `.py` di folder `praktikum/week3-modmath-gcd/src/`.
 2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python caesar_cipher.py`.)
+3. Menjalankan program masing-masing source dengan perintah `.py`.
 
 ---
 
