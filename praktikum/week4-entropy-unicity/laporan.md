@@ -43,6 +43,14 @@ Dalam konteks evaluasi kekuatan kunci, kombinasi antara entropi tinggi dan unici
 
 ## 5. Source Code
 
+### 1 — Perhitungan Entropi
+Gunakan rumus:  
+\[
+H(K) = \log_2 |K|
+\]  
+dengan \(|K|\) adalah ukuran ruang kunci.  
+
+Contoh implementasi Python:  
 ```python
 import math
 
@@ -51,6 +59,40 @@ def entropy(keyspace_size):
 
 print("Entropy ruang kunci 26 =", entropy(26), "bit")
 print("Entropy ruang kunci 2^128 =", entropy(2**128), "bit")
+```
+
+### 2 — Menghitung Unicity Distance
+Gunakan rumus:  
+\[
+U = \frac{H(K)}{R \cdot \log_2 |A|}
+\]  
+dengan:  
+- \(H(K)\): entropi kunci,  
+- \(R\): redundansi bahasa (misal bahasa Inggris \(R \approx 0.75\)),  
+- \(|A|\): ukuran alfabet (26 untuk A–Z).  
+
+Contoh implementasi Python:  
+```python
+def unicity_distance(HK, R=0.75, A=26):
+    return HK / (R * math.log2(A))
+
+HK = entropy(26)
+print("Unicity Distance untuk Caesar Cipher =", unicity_distance(HK))
+```
+
+### 3 — Analisis Brute Force
+Simulasikan waktu brute force dengan asumsi kecepatan komputer tertentu.  
+
+```python
+def brute_force_time(keyspace_size, attempts_per_second=1e6):
+    seconds = keyspace_size / attempts_per_second
+    days = seconds / (3600*24)
+    return days
+
+print("Waktu brute force Caesar Cipher (26 kunci) =", brute_force_time(26), "hari")
+print("Waktu brute force AES-128 =", brute_force_time(2**128), "hari")
+```
+
 ---
 
 ## 6. Hasil dan Pembahasan
@@ -70,13 +112,23 @@ Hasil eksekusi program Caesar Cipher:
 
 ## 7. Jawaban Pertanyaan
 (Jawab pertanyaan diskusi yang diberikan pada modul.  
-- Pertanyaan 1: …  
-- Pertanyaan 2: …  
+- Pertanyaan 1:
+Arti nilai entropy dalam konteks kekuatan kunci:
+Nilai entropy menunjukkan tingkat keacakan atau ketidakpastian suatu kunci kriptografi. Semakin tinggi entropinya, semakin banyak kemungkinan kombinasi kunci yang harus dicoba oleh penyerang untuk menemukan kunci yang benar. Dengan kata lain, entropi tinggi berarti kunci lebih sulit ditebak dan lebih kuat terhadap serangan brute force. Misalnya, kunci dengan 128 bit entropi memiliki 
+2 ^128 kemungkinan, sehingga hampir mustahil ditebak dengan teknologi komputasi saat ini.
+
+- Pertanyaan 2:
+Pentingnya unicity distance dalam menentukan keamanan cipher:
+Unicity distance menunjukkan jumlah minimal ciphertext yang diperlukan agar kunci dapat ditentukan secara unik. Jika ciphertext yang diperoleh penyerang lebih banyak daripada nilai unicity distance, maka secara teoritis ia bisa menebak kunci dengan menganalisis pola atau redundansi dalam teks. Jadi, semakin besar unicity distance suatu cipher, semakin aman cipher tersebut karena membutuhkan lebih banyak data terenkripsi sebelum kunci bisa ditemukan.
+
+- Pertanyaan 3:
+Alasan brute force tetap menjadi ancaman meskipun algoritma kuat:
+Meskipun algoritma modern seperti AES atau RSA sangat kuat secara matematis, brute force tetap menjadi ancaman jika kunci yang digunakan terlalu pendek atau dihasilkan dari sumber yang lemah (misalnya, kata sandi sederhana). Selain itu, perkembangan teknologi seperti komputasi paralel dan komputer kuantum berpotensi mempercepat pencarian kunci secara eksponensial. Oleh karena itu, keamanan kriptografi tidak hanya bergantung pada algoritmanya, tetapi juga pada panjang dan kualitas kunci yang digunakan.
 )
 ---
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
+Berdasarkan percobaan, terlihat bahwa entropy untuk ruang kunci kecil seperti Caesar Cipher (26 kemungkinan) sangat rendah, sehingga mudah ditebak melalui brute force. Sebaliknya, ruang kunci besar seperti AES-128 memiliki entropi yang sangat tinggi sehingga hampir mustahil dipecahkan dengan kekuatan komputasi saat ini. Nilai unicity distance Caesar Cipher juga kecil, menandakan cipher tersebut mudah dianalisis dan tidak aman dibandingkan algoritma modern.
 
 ---
 
@@ -89,12 +141,11 @@ Contoh:
 ---
 
 ## 10. Commit Log
-(Tuliskan bukti commit Git yang relevan.  
-Contoh:
-```
-commit abc12345
-Author: Nama Mahasiswa <email>
-Date:   2025-09-20
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+```
+commit week4-entropy-unicity
+Author: Ramzi Selpora Widiyanto <rasawi46rsw@gmail.com>
+Date:   2025-11-08
+
+    week4-entrophy-unicity: Entropy & Unicity Distance (Evaluasi Kekuatan Kunci dan Brute Force)
 ```
