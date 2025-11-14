@@ -152,19 +152,47 @@ print("Decrypted :", dec)
 - Jelaskan apakah hasil sesuai ekspektasi.  
 - Bahas error (jika ada) dan solusinya. 
 
-Hasil eksekusi program Caesar Cipher:
+Hasil eksekusi program Cipher Klasik:
 
-![Hasil Eksekusi](screenshots/output.png)
-![Hasil Input](screenshots/input.png)
-![Hasil Output](screenshots/output.png)
+![Hasil cipher](screenshots/hasil_output_caesar.png)
+![Hasil vigenere](screenshots/hasil_output_vigenere.png)
+![Hasil transpose](screenshots/hasil_output_transpose.png)
 )
 
 ---
 
 ## 7. Jawaban Pertanyaan
 (Jawab pertanyaan diskusi yang diberikan pada modul.  
-- Pertanyaan 1: …  
-- Pertanyaan 2: …  
+- Pertanyaan 1: 
+# Caesar Cipher
+
+Kuncinya sangat kecil (hanya 25 kemungkinan pergeseran), sehingga sangat mudah di-bruteforce.
+
+Pola huruf tetap: karakter yang sering muncul dalam plaintext akan tetap sering muncul di ciphertext → mudah dibongkar lewat analisis frekuensi.
+
+# Vigenère Cipher
+
+Jika panjang kunci pendek, pola pengulangan dapat dianalisis menggunakan metode Kasiski atau Friedman test untuk menebak panjang kunci.
+
+Setelah panjang kunci diketahui, cipher berubah menjadi serangkaian Caesar Cipher → bisa dipecahkan dengan analisis frekuensi per kolom.
+
+Vigenère tampak lebih kuat, tapi tetap rentan pada serangan statistik.
+
+- Pertanyaan 2:
+
+Cipher klasik (seperti Caesar, Vigenère, atau substitusi sederhana) tidak menghilangkan pola statistik bahasa. Frekuensi huruf seperti “A”, “E”, “N”, atau pola pasangan huruf tetap muncul dalam ciphertext. Karena pola ini tidak tersembunyi:
+
+Penyerang dapat mencocokkan distribusi frekuensi ciphertext dengan distribusi huruf bahasa target.
+
+Pola seperti huruf yang sering, bigram (dua huruf), dan trigram (tiga huruf) membantu menebak huruf-huruf lain.
+
+Akibatnya, cipher klasik mudah dibongkar meski tanpa mengetahui kunci.
+
+- Pertanyaan 3:
+
+Substitusi mengubah huruf tetapi mempertahankan pola frekuensi → mudah dipetakan.
+
+Transposisi mengacak posisi huruf tetapi tidak mengubah huruf → tetap menyisakan pola posisi yang dapat dianalisis.
 )
 ---
 
