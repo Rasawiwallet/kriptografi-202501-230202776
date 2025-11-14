@@ -202,20 +202,18 @@ Transposisi mengacak posisi huruf tetapi tidak mengubah huruf → tetap menyisak
 ---
 
 ## 9. Daftar Pustaka
-(Cantumkan referensi yang digunakan.  
-Contoh:  
+  
 - Katz, J., & Lindell, Y. *Introduction to Modern Cryptography*.  
-- Stallings, W. *Cryptography and Network Security*.  )
+- Stallings, W. *Cryptography and Network Security*.  
 
 ---
 
 ## 10. Commit Log
-(Tuliskan bukti commit Git yang relevan.  
-Contoh:
+
 ```
 commit abc12345
-Author: Nama Mahasiswa <email>
-Date:   2025-09-20
+Author: Ramzi Selpora Widiyanto <rasawi46rsw@gmail.com>
+Date:   2025-11-14
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+    week 5 : Cipher Klasik (Caesar, Vigenère, Transposisi)
 ```
