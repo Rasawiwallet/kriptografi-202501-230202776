@@ -35,9 +35,9 @@ Berbeda dari DES dan AES yang simetris, RSA merupakan cipher asimetris—menggun
 
 ## 4. Langkah Percobaan
 
-1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
+1. Membuat file `des.py, aes.py, rsa.py` di folder `praktikum/week2-cryptosystem/src/`.
 2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python caesar_cipher.py`.
+3. Menjalankan program dengan perintah `python des.py, aes.py, rsa.py`.
 
 ---
 
@@ -104,7 +104,6 @@ print("Ciphertext:", ciphertext)
 decipher_rsa = PKCS1_OAEP.new(private_key)
 decrypted = decipher_rsa.decrypt(ciphertext)
 print("Decrypted:", decrypted.decode())
-
 ```
 
 ## 6. Hasil dan Pembahasan
