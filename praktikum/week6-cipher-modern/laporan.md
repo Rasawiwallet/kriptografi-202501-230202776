@@ -23,6 +23,7 @@ Cipher modern dirancang untuk mengatasi kelemahan cipher klasik dengan menerapka
 Untuk menggantikan DES, dikembangkan AES (Advanced Encryption Standard) yang juga merupakan cipher blok simetris, tetapi menggunakan ukuran blok 128-bit dan kunci 128/192/256-bit. AES memakai struktur Substitution–Permutation Network (SPN) dengan ronde yang melibatkan operasi seperti SubBytes, ShiftRows, MixColumns, dan AddRoundKey. Desainnya efisien untuk perangkat keras maupun perangkat lunak, serta tahan terhadap serangan kriptografi modern, sehingga menjadi standar enkripsi global untuk keamanan data.
 
 Berbeda dari DES dan AES yang simetris, RSA merupakan cipher asimetris—menggunakan pasangan kunci publik dan privat. RSA didasarkan pada kesulitan faktorisasi bilangan besar, di mana keamanan enkripsi bergantung pada ukuran modulus (biasanya 2048–4096 bit). RSA banyak digunakan untuk pertukaran kunci, tanda tangan digital, dan komunikasi aman pada protokol seperti TLS. Karena prosesnya lebih berat dibanding AES, RSA biasanya tidak dipakai untuk mengenkripsi data dalam jumlah besar, tetapi hanya untuk negosiasi kunci.
+
 ---
 
 ## 3. Alat dan Bahan
