@@ -42,17 +42,70 @@ Berbeda dari DES dan AES yang simetris, RSA merupakan cipher asimetris—menggun
 ---
 
 ## 5. Source Code
-(Salin kode program utama yang dibuat atau dimodifikasi.  
-Gunakan blok kode:
 
+
+# DES
 ```python
-# contoh potongan kode
-def encrypt(text, key):
-    return ...
-```
-)
+from Crypto.Cipher import DES
+from Crypto.Random import get_random_bytes
+from Crypto.Util.Padding import pad, unpad
 
----
+key = get_random_bytes(8)                  # Kunci 8 byte
+cipher = DES.new(key, DES.MODE_ECB)
+
+plaintext = b"RAMZISELPORA"                  # 10 byte
+padded = pad(plaintext, 8)                 # padding ke kelipatan 8 byte
+
+ciphertext = cipher.encrypt(padded)
+print("Ciphertext:", ciphertext)
+
+# Dekripsi
+decipher = DES.new(key, DES.MODE_ECB)
+decrypted = unpad(decipher.decrypt(ciphertext), 8)
+print("Decrypted:", decrypted)
+```
+
+# AES
+```python
+from Crypto.Cipher import AES
+from Crypto.Random import get_random_bytes
+
+key = get_random_bytes(16)  # 128 bit key
+cipher = AES.new(key, AES.MODE_EAX)
+
+plaintext = b"Modern Cipher AES Example"
+ciphertext, tag = cipher.encrypt_and_digest(plaintext)
+
+print("Ciphertext:", ciphertext)
+
+# Dekripsi
+cipher_dec = AES.new(key, AES.MODE_EAX, nonce=cipher.nonce)
+decrypted = cipher_dec.decrypt(ciphertext)
+print("Decrypted:", decrypted.decode())
+```
+
+# RSA
+```phyton
+from Crypto.PublicKey import RSA
+from Crypto.Cipher import PKCS1_OAEP
+
+# Generate key pair
+key = RSA.generate(2048)
+private_key = key
+public_key = key.publickey()
+
+# Enkripsi dengan public key
+cipher_rsa = PKCS1_OAEP.new(public_key)
+plaintext = b"RSA Example"
+ciphertext = cipher_rsa.encrypt(plaintext)
+print("Ciphertext:", ciphertext)
+
+# Dekripsi dengan private key
+decipher_rsa = PKCS1_OAEP.new(private_key)
+decrypted = decipher_rsa.decrypt(ciphertext)
+print("Decrypted:", decrypted.decode())
+
+```
 
 ## 6. Hasil dan Pembahasan
   
