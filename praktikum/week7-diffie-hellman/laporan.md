@@ -8,13 +8,21 @@ Kelas: [5 IKKA]
 ---
 
 ## 1. Tujuan
-(Tuliskan tujuan pembelajaran praktikum sesuai modul.)
+Setelah mengikuti praktikum ini, mahasiswa diharapkan mampu:
+1. Melakukan simulasi protokol Diffie-Hellman untuk pertukaran kunci publik.
+2. Menjelaskan mekanisme pertukaran kunci rahasia menggunakan bilangan prima dan logaritma diskrit.
+3. Menganalisis potensi serangan pada protokol Diffie-Hellman (termasuk serangan Man-in-the-Middle / MITM).
 
 ---
 
 ## 2. Dasar Teori
-(Ringkas teori relevan (cukup 2–3 paragraf).  
-Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
+Diffie–Hellman Key Exchange (DHKE) adalah sebuah protokol kriptografi yang memungkinkan dua pihak bertukar secret key melalui kanal komunikasi yang tidak aman tanpa perlu saling berbagi kunci sebelumnya. Inti dari protokol ini adalah pemanfaatan operasi matematika pada aritmetika modulo, khususnya konsep discrete logarithm problem (DLP) yang sulit dipecahkan. Dua pihak sepakat memilih sebuah bilangan prima besar 
+p dan sebuah generator g. Masing-masing pihak kemudian memilih bilangan rahasia secara acak, melakukan perpangkatan g^a mod p dan g^b mod p, lalu bertukar hasil tersebut secara publik.
+
+Keamanan DHKE terletak pada fakta bahwa meskipun nilai publik 
+g^amod p dan g^bmod dapat dilihat oleh pihak lain, menghitung nilai rahasia a atau b dari informasi itu sangat sulit karena masalah DLP. Setelah pertukaran nilai publik, kedua pihak dapat menghitung shared secret yang sama yaitu g^abmod  p, tetapi pihak luar tidak bisa mendapatkannya secara praktis. Dengan kunci bersama ini, kedua pihak dapat melakukan enkripsi simetris dengan aman.
+
+Meski aman dari penyadapan pasif, Diffie–Hellman rentan terhadap serangan man-in-the-middle jika tidak digabungkan dengan autentikasi, misalnya sertifikat digital atau tanda tangan digital. Karena itu, di protokol modern seperti TLS, DH biasanya digunakan bersama mekanisme autentikasi untuk memastikan bahwa kunci yang dinegosiasikan benar-benar berasal dari pihak yang sah.
 
 ---
 
@@ -27,34 +35,23 @@ Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
 ---
 
 ## 4. Langkah Percobaan
-(Tuliskan langkah yang dilakukan sesuai instruksi.  
-Contoh format:
+
 1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
 2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python caesar_cipher.py`.)
+3. Menjalankan program dengan perintah `python caesar_cipher.py`.
 
 ---
 
 ## 5. Source Code
-(Salin kode program utama yang dibuat atau dimodifikasi.  
-Gunakan blok kode:
 
 ```python
-# contoh potongan kode
-def encrypt(text, key):
-    return ...
+
 ```
-)
+
 
 ---
 
 ## 6. Hasil dan Pembahasan
-(- Lampirkan screenshot hasil eksekusi program (taruh di folder `screenshots/`).  
-- Berikan tabel atau ringkasan hasil uji jika diperlukan.  
-- Jelaskan apakah hasil sesuai ekspektasi.  
-- Bahas error (jika ada) dan solusinya. 
-
-Hasil eksekusi program Caesar Cipher:
 
 ![Hasil Eksekusi](screenshots/output.png)
 ![Hasil Input](screenshots/input.png)
@@ -65,8 +62,9 @@ Hasil eksekusi program Caesar Cipher:
 
 ## 7. Jawaban Pertanyaan
 (Jawab pertanyaan diskusi yang diberikan pada modul.  
-- Pertanyaan 1: …  
-- Pertanyaan 2: …  
+- Pertanyaan 1:
+
+- Pertanyaan 2:  
 )
 ---
 
