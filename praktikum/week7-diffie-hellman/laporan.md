@@ -1,6 +1,6 @@
 # Laporan Praktikum Kriptografi
 Minggu ke-: 7  
-Topik: []  
+Topik: [Diffie-Hellman Key Exchange]  
 Nama: [Ramzi Selpora Widiyanto]  
 NIM: [230202776]  
 Kelas: [5 IKKA]  

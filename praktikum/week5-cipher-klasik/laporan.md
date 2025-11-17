@@ -147,22 +147,16 @@ print("Decrypted :", dec)
 ---
 
 ## 6. Hasil dan Pembahasan
-(- Lampirkan screenshot hasil eksekusi program (taruh di folder `screenshots/`).  
-- Berikan tabel atau ringkasan hasil uji jika diperlukan.  
-- Jelaskan apakah hasil sesuai ekspektasi.  
-- Bahas error (jika ada) dan solusinya. 
-
 Hasil eksekusi program Cipher Klasik:
 
 ![Hasil cipher](screenshots/hasil_output_caesar.png)
 ![Hasil vigenere](screenshots/hasil_output_vigenere.png)
 ![Hasil transpose](screenshots/hasil_output_transpose.png)
-)
 
 ---
 
 ## 7. Jawaban Pertanyaan
-(Jawab pertanyaan diskusi yang diberikan pada modul.  
+ 
 - Pertanyaan 1: 
 # Caesar Cipher
 
@@ -193,12 +187,15 @@ Akibatnya, cipher klasik mudah dibongkar meski tanpa mengetahui kunci.
 Substitusi mengubah huruf tetapi mempertahankan pola frekuensi → mudah dipetakan.
 
 Transposisi mengacak posisi huruf tetapi tidak mengubah huruf → tetap menyisakan pola posisi yang dapat dianalisis.
-)
+
 ---
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
+Cipher klasik seperti Caesar Cipher, Vigenère Cipher, dan cipher transposisi merupakan teknik enkripsi awal yang bekerja melalui operasi sederhana seperti pergeseran huruf, substitusi, atau pengacakan posisi karakter. Meskipun mudah dipahami dan diterapkan, cipher klasik memiliki struktur yang terlalu sederhana dan pola yang dihasilkan masih dapat dikenali.
 
+Kelemahan utama cipher klasik adalah rentan terhadap analisis frekuensi, karena karakter dalam ciphertext tetap mempertahankan pola kemunculan huruf dari bahasa aslinya. Dengan menganalisis frekuensi huruf, seorang penyerang dapat menebak kunci maupun isi pesan dengan relatif cepat. Selain itu, sebagian besar cipher klasik memiliki ruang kunci yang sangat kecil, sehingga mudah dipecahkan melalui brute force.
+
+Secara keseluruhan, cipher klasik memiliki nilai historis dan edukatif, tetapi tidak lagi aman untuk digunakan pada komunikasi modern. Algoritma kriptografi masa kini sudah beralih ke cipher modern yang jauh lebih kuat, seperti AES dan RSA, yang menawarkan keamanan berbasis matematika kompleks dan ukuran kunci yang besar.
 ---
 
 ## 9. Daftar Pustaka
