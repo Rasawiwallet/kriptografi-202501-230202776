@@ -1,14 +1,19 @@
 # Laporan Praktikum Kriptografi
-Minggu ke-: X  
-Topik: [judul praktikum]  
-Nama: [Nama Mahasiswa]  
-NIM: [NIM Mahasiswa]  
-Kelas: [Kelas]  
+Minggu ke-: 6  
+Topik: [Cipher Modern (DES, AES, RSA)]  
+Nama: [Ramzi Selpora Widiyanto]  
+NIM: [230202776]  
+Kelas: [5 IKKA]  
 
 ---
 
 ## 1. Tujuan
-(Tuliskan tujuan pembelajaran praktikum sesuai modul.)
+Tujuan Pembelajaran
+
+Setelah mengikuti praktikum ini, mahasiswa diharapkan mampu:
+1. Mengimplementasikan algoritma DES untuk blok data sederhana.
+2. Menerapkan algoritma AES dengan panjang kunci 128 bit.
+3. Menjelaskan proses pembangkitan kunci publik dan privat pada algoritma RSA.
 
 ---
 
