@@ -211,9 +211,9 @@ Transposisi mengacak posisi huruf tetapi tidak mengubah huruf → tetap menyisak
 ## 10. Commit Log
 
 ```
-commit abc12345
+commit week5-cipher-klasik
 Author: Ramzi Selpora Widiyanto <rasawi46rsw@gmail.com>
 Date:   2025-11-14
 
-    week 5 : Cipher Klasik (Caesar, Vigenère, Transposisi)
+    week5-cipher-klasik : Cipher Klasik (Caesar, Vigenère, Transposisi)
 ```
