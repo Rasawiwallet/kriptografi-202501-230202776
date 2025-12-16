@@ -8,13 +8,13 @@ Kelas: [5 IKKA]
 ---
 
 ## 1. Tujuan
-(Tuliskan tujuan pembelajaran praktikum sesuai modul.)
-
+Setelah mengikuti praktikum ini, mahasiswa diharapkan mampu:
+1. Mengimplementasikan tanda tangan digital menggunakan algoritma RSA/DSA.
+2. Memverifikasi keaslian tanda tangan digital.
+3. Menjelaskan manfaat tanda tangan digital dalam otentikasi pesan dan integritas data
 ---
 
 ## 2. Dasar Teori
-(Ringkas teori relevan (cukup 2–3 paragraf).  
-Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
 
 ---
 
