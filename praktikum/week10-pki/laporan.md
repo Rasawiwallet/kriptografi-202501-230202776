@@ -94,10 +94,10 @@ Hasil eksekusi program pki_cert:
 ---
 
 ## 7. Jawaban Pertanyaan
-(Jawab pertanyaan diskusi yang diberikan pada modul.  
+ 
 - Pertanyaan 1: …  
 - Pertanyaan 2: …  
-)
+
 ---
 
 ## 8. Kesimpulan
