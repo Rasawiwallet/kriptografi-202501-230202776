@@ -1,9 +1,9 @@
 # Laporan Praktikum Kriptografi
-Minggu ke-: X  
-Topik: [judul praktikum]  
-Nama: [Nama Mahasiswa]  
-NIM: [NIM Mahasiswa]  
-Kelas: [Kelas]  
+Minggu ke-: 10  
+Topik: []  
+Nama: [Ramzi Selpora Widiyanto]  
+NIM: [230202776 ]  
+Kelas: [5 IKKA]  
 
 ---
 
