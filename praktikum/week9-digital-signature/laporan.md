@@ -87,7 +87,6 @@ Hasil eksekusi program Signature:
 
 ![Hasil Eksekusi](screenshots/hasil.png)
 
-
 ---
 
 ## 7. Jawaban Pertanyaan
