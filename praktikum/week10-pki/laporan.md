@@ -32,12 +32,9 @@ Dalam sistem modern, PKI juga menyediakan mekanisme pencabutan sertifikat melalu
 ---
 
 ## 4. Langkah Percobaan
-(Tuliskan langkah yang dilakukan sesuai instruksi.  
-Contoh format:
-1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
+1. Membuat file `pki_cert.py` di folder `praktikum/week2-cryptosystem/src/`.
 2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python caesar_cipher.py`.)
-
+3. Menjalankan program dengan perintah `python oki_cert.py`.
 ---
 
 ## 5. Source Code
@@ -78,6 +75,27 @@ with open("cert.pem", "wb") as f:
 print("Sertifikat digital berhasil dibuat: cert.pem")
 ```
 
+- Memverifikasi Sertifikat
+
+Verifikasi sertifikat dilakukan dengan memeriksa tanda tangan digital pada sertifikat menggunakan public key milik Certificate Authority (CA). Pada kode di atas, sertifikat bersifat self-signed, artinya issuer dan subject sama, sehingga verifikasi dilakukan menggunakan public key dari sertifikat itu sendiri. Jika tanda tangan valid dan periode berlaku masih aktif, maka sertifikat dianggap sah secara kriptografis.
+
+Dalam PKI nyata, CA berperan sebagai pihak tepercaya yang menandatangani sertifikat milik pengguna atau server. Ketika sebuah sertifikat diterima, sistem akan menggunakan public key CA (yang sudah dipercaya dan tersimpan di sistem/browsers) untuk memverifikasi tanda tangan sertifikat tersebut. Dengan demikian, keaslian sertifikat dijamin karena hanya CA yang sah yang memiliki private key untuk membuat tanda tangan tersebut.
+
+- Analisis PKI (Kasus Nyata)
+
+1. Bagaimana browser memverifikasi sertifikat HTTPS?
+Browser memeriksa sertifikat server dengan cara:
+
+- Memvalidasi rantai kepercayaan (certificate chain) dari sertifikat server hingga Root CA tepercaya.
+- Memeriksa tanda tangan digital pada setiap sertifikat menggunakan public key CA terkait.
+- Memastikan masa berlaku, nama domain, serta status pencabutan sertifikat (CRL/OCSP).
+Jika semua valid, koneksi HTTPS dianggap aman dan tepercaya.
+
+2. Apa yang terjadi jika CA palsu menerbitkan sertifikat?
+Jika CA palsu atau CA yang dikompromikan menerbitkan sertifikat, penyerang dapat melakukan man-in-the-middle attack, menyamar sebagai server asli dan mencuri data sensitif. Oleh karena itu, sistem operasi dan browser hanya mempercayai Root CA tertentu, serta dapat mencabut kepercayaan terhadap CA yang terbukti bermasalah.
+
+3. Mengapa PKI penting dalam komunikasi aman (misalnya transaksi online)?
+PKI memastikan bahwa komunikasi dilakukan dengan pihak yang benar, data tidak diubah selama transmisi, dan informasi sensitif tetap aman. Dalam transaksi online, PKI melindungi data seperti password, nomor kartu kredit, dan identitas pengguna, sehingga mencegah pemalsuan, penyadapan, dan penipuan digital. Tanpa PKI, kepercayaan dalam komunikasi di internet tidak dapat terjamin.
 ---
 
 ## 6. Hasil dan Pembahasan
@@ -95,13 +113,25 @@ Hasil eksekusi program pki_cert:
 
 ## 7. Jawaban Pertanyaan
  
-- Pertanyaan 1: …  
-- Pertanyaan 2: …  
+1. Apa fungsi utama Certificate Authority (CA)?
+Jawab :
+Certificate Authority (CA) berfungsi sebagai pihak tepercaya yang memverifikasi identitas pemilik kunci publik dan menerbitkan sertifikat digital. CA mengikat identitas (domain, individu, atau organisasi) dengan kunci publik melalui tanda tangan digital, sehingga pihak lain dapat mempercayai bahwa kunci publik tersebut benar-benar milik entitas yang sah.
+
+2. Mengapa self-signed certificate tidak cukup untuk sistem produksi?
+Jawab :
+Self-signed certificate tidak cukup untuk sistem produksi karena tidak ada pihak ketiga tepercaya yang memverifikasi identitas pemilik sertifikat. Akibatnya, browser atau klien akan menampilkan peringatan keamanan dan pengguna tidak dapat memastikan keaslian server. Self-signed certificate hanya cocok untuk pengujian atau lingkungan internal, bukan untuk layanan publik yang membutuhkan tingkat kepercayaan tinggi.
+
+3. Bagaimana PKI mencegah serangan MITM dalam komunikasi TLS/HTTPS?
+Jawab : 
+PKI mencegah serangan Man-in-the-Middle (MITM) dengan memastikan bahwa sertifikat server diverifikasi melalui rantai kepercayaan CA. Browser memeriksa tanda tangan sertifikat, kesesuaian nama domain, dan status pencabutan sertifikat. Penyerang tidak dapat menyamar sebagai server asli karena tidak memiliki sertifikat valid yang ditandatangani CA tepercaya, sehingga koneksi TLS/HTTPS yang aman tetap terjaga.
 
 ---
 
 ## 8. Kesimpulan
+Kesimpulan pada Kode:
+Kode tersebut menunjukkan implementasi dasar Public Key Infrastructure (PKI) melalui pembuatan sertifikat digital self-signed menggunakan algoritma kriptografi kunci publik RSA. Proses ini mencakup pembuatan pasangan kunci, penentuan identitas (subject dan issuer), serta penandatanganan sertifikat menggunakan fungsi hash SHA-256 untuk menjamin keutuhan dan keaslian sertifikat secara kriptografis.
 
+Meskipun sertifikat yang dihasilkan valid secara teknis, karena bersifat self-signed, sertifikat ini belum dapat dipercaya dalam lingkungan produksi. Hal ini menegaskan pentingnya peran Certificate Authority (CA) sebagai pihak tepercaya dalam PKI, di mana CA memverifikasi identitas dan menandatangani sertifikat agar dapat digunakan secara aman pada sistem nyata seperti TLS/HTTPS.
 ---
 
 ## 9. Daftar Pustaka
