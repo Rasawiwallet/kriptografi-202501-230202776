@@ -20,6 +20,7 @@ Digital Signature (RSA/DSA) adalah mekanisme kriptografi kunci publik yang digun
 Pada RSA Digital Signature, penandatanganan dilakukan dengan mengenkripsi nilai hash menggunakan kunci privat RSA, sedangkan verifikasi dilakukan dengan kunci publik RSA untuk membandingkan hasil dekripsi dengan hash pesan yang dihitung ulang. RSA relatif sederhana dan banyak digunakan, tetapi ukuran kunci yang besar dibutuhkan untuk tingkat keamanan tinggi, sehingga kurang efisien untuk perangkat dengan sumber daya terbatas.
 
 Sementara itu, DSA (Digital Signature Algorithm) dirancang khusus untuk tanda tangan digital dan berbasis pada kesulitan masalah logaritma diskret. DSA menghasilkan tanda tangan berupa sepasang nilai (r, s) dan umumnya lebih efisien dibanding RSA dalam hal ukuran tanda tangan dan komputasi. Namun, keamanan DSA sangat bergantung pada penggunaan bilangan acak (nonce) yang benar; kesalahan pada nonce dapat menyebabkan kebocoran kunci privat.
+
 ---
 
 ## 3. Alat dan Bahan
