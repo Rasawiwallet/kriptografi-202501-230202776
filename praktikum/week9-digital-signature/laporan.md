@@ -85,7 +85,7 @@ except (ValueError, TypeError):
 
 Hasil eksekusi program Signature:
 
-![Hasil Eksekusi](screenshots/hasil.png)
+![Hasil Eksekusi](screenshots/image.png)
 
 ---
 
