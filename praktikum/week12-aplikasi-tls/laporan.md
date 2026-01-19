@@ -63,6 +63,29 @@ Algoritma Enkripsi yang Digunakan:
 - Algoritma kunci publik: Elliptic Curve Cryptography (ECC)
 - Ukuran kunci: 256 bit
 - Algoritma tanda tangan: SHA-256 with RSA Encryption
+
+# Perbandingan HTTPS dan Tanpa HTTIPS
+Website dengan HTTPS menggunakan protokol TLS (Transport Layer Security) untuk mengenkripsi data yang dikirim antara pengguna dan server. Dengan adanya enkripsi, informasi sensitif seperti username, password, dan data transaksi tidak dapat dibaca atau diubah oleh pihak ketiga. Selain itu, HTTPS menyediakan autentikasi server melalui sertifikat digital yang dikeluarkan oleh Certificate Authority (CA), sehingga pengguna dapat memastikan bahwa website yang diakses adalah resmi dan terpercaya. Browser modern menandai website HTTPS dengan ikon gembok yang meningkatkan rasa aman dan kepercayaan pengguna.
+
+Sebaliknya, website tanpa HTTPS (HTTP) tidak memiliki mekanisme enkripsi maupun autentikasi. Data dikirim dalam bentuk teks biasa (plaintext), sehingga sangat mudah disadap atau dimodifikasi, terutama ketika pengguna mengaksesnya melalui jaringan publik. Website HTTP juga ditandai sebagai “Not Secure” oleh browser, yang dapat menurunkan kepercayaan pengguna dan berpotensi menyebabkan kebocoran data.
+
+Secara keseluruhan, HTTPS memberikan perlindungan terhadap kerahasiaan dan integritas data serta menjamin identitas server, sedangkan HTTP tidak menawarkan perlindungan keamanan sama sekali. Oleh karena itu, penggunaan HTTPS menjadi standar wajib bagi website modern, khususnya website e-commerce yang menangani data pribadi dan transaksi keuangan.
+
+Langkah 2 : Studi Kasus E-Commerce
+1. Analisis penggunaan enkripsi dalam melindungi transaksi online
+- Data login dan pembayaran dienkripsi menggunakan TLS sebelum dikirim dari browser ke server.
+- Proses handshake TLS memanfaatkan kriptografi kunci publik untuk membangun kunci sesi yang aman.
+- Setelah kunci sesi terbentuk, data dikirim menggunakan enkripsi simetris (misalnya AES) agar cepat dan aman.
+- Enkripsi memastikan kerahasiaan dan integritas data sehingga tidak bisa dibaca atau diubah pihak lain.
+
+2. Potensi ancaman jika TLS tidak digunakan
+- Serangan Man-in-the-Middle memungkinkan penyerang menyadap atau memodifikasi data transaksi.
+- Username, password, dan data kartu kredit dapat dicuri karena dikirim tanpa enkripsi.
+- Penyerang dapat memalsukan website (phishing) karena tidak ada autentikasi server.
+- Kepercayaan pengguna menurun dan risiko kerugian finansial meningkat.
+
+Langkah 3 : Analisis Etika & Privasi
+
 ---
 
 ## 5. Source Code
