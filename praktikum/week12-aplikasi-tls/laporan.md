@@ -8,14 +8,20 @@ Kelas: [5 IKKA]
 ---
 
 ## 1. Tujuan
-(Tuliskan tujuan pembelajaran praktikum sesuai modul.)
+Setelah mengikuti praktikum ini, mahasiswa diharapkan mampu:
+
+1. Menganalisis penggunaan kriptografi pada email dan SSL/TLS.
+2. Menjelaskan enkripsi dalam transaksi e-commerce.
+3. Mengevaluasi isu etika & privasi dalam penggunaan kriptografi di kehidupan sehari-hari.
 
 ---
 
 ## 2. Dasar Teori
-(Ringkas teori relevan (cukup 2–3 paragraf).  
-Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
+Transport Layer Security (TLS) merupakan protokol kriptografi yang digunakan untuk mengamankan komunikasi data pada jaringan komputer, khususnya di internet. TLS bekerja dengan cara mengenkripsi data yang dikirimkan antara klien (browser pengguna) dan server, sehingga informasi sensitif seperti data login, nomor kartu kredit, dan detail transaksi tidak dapat dibaca atau dimodifikasi oleh pihak yang tidak berwenang. Protokol ini juga menyediakan mekanisme autentikasi melalui sertifikat digital yang dikeluarkan oleh Certificate Authority (CA), sehingga pengguna dapat memastikan identitas server yang diakses adalah sah.
 
+Dalam konteks e-commerce, TLS berperan penting dalam menjaga keamanan dan kepercayaan pengguna. Website e-commerce yang menggunakan TLS ditandai dengan protokol HTTPS, yang menunjukkan bahwa komunikasi telah dienkripsi dan integritas data terjamin. Dengan adanya TLS, risiko serangan seperti man-in-the-middle, pencurian data, dan pemalsuan transaksi dapat diminimalkan. Hal ini sangat krusial mengingat e-commerce melibatkan pertukaran data keuangan dan informasi pribadi pelanggan.
+
+Penerapan TLS yang baik pada e-commerce tidak hanya meningkatkan keamanan teknis, tetapi juga berdampak pada aspek bisnis. Penggunaan TLS membantu memenuhi standar keamanan internasional, meningkatkan kepercayaan konsumen, serta mendukung kepatuhan terhadap regulasi perlindungan data. Oleh karena itu, TLS menjadi komponen fundamental dalam membangun sistem e-commerce yang aman, andal, dan profesional.
 ---
 
 ## 3. Alat dan Bahan
