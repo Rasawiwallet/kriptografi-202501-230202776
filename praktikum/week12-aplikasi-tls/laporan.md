@@ -49,7 +49,7 @@ def encrypt(text, key):
 - Jelaskan apakah hasil sesuai ekspektasi.  
 - Bahas error (jika ada) dan solusinya. 
 
-Hasil eksekusi program Caesar Cipher:
+Hasil Tokopedia dan Eksekusi:
 
 ![Tokopedia](screenshots/tokped.png)
 ![Hasil Input](screenshots/input.png)
