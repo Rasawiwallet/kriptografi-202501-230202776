@@ -35,7 +35,34 @@ Penerapan TLS yang baik pada e-commerce tidak hanya meningkatkan keamanan teknis
 ## 4. Langkah Percobaan
 
 Langkah 1 : Analisis SSL/TLS pada Email & Web
+## Shopee Indonesia (shopee.co.id)
+Issuer CA (Certificate Authority):
+- GlobalSign
+- Rantai sertifikat: GlobalSign GCC R6 AlphaSSL CA 2023
 
+Masa Berlaku Sertifikat:
+- Berlaku mulai: 24 Maret 2025
+- Berlaku hingga: 25 April 2026
+
+Algoritma Enkripsi yang Digunakan:
+- Algoritma kunci publik: RSA
+- Ukuran kunci: 2048 bit
+- Algoritma tanda tangan: SHA-256 with RSA Encryption
+
+## Tokopedia (tokopedia.com)
+
+Issuer CA (Certificate Authority):
+- DigiCert
+- Rantai sertifikat: DigiCert Global G2 TLS RSA SHA256 2020 CA
+
+Masa Berlaku Sertifikat:
+- Berlaku mulai: 11 Juni 2025
+- Berlaku hingga: 03 Juli 2026
+
+Algoritma Enkripsi yang Digunakan:
+- Algoritma kunci publik: Elliptic Curve Cryptography (ECC)
+- Ukuran kunci: 256 bit
+- Algoritma tanda tangan: SHA-256 with RSA Encryption
 ---
 
 ## 5. Source Code
@@ -58,7 +85,7 @@ def encrypt(text, key):
 Hasil Tokopedia dan Eksekusi:
 
 ![Tokopedia](screenshots/tokped.png)
-![Hasil Input](screenshots/input.png)
+![Shopee](screenshots/shopee.png)
 ![Hasil Output](screenshots/output.png)
 
 ---
