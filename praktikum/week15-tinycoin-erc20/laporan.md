@@ -68,17 +68,280 @@ Meskipun mudah diimplementasikan keamanan TinyCoin ERC-20 sangat bergantung pada
 (screenshots/remix10.png)
 ---
 
-## 5. Source Code
-(Salin kode program utama yang dibuat atau dimodifikasi.  
-Gunakan blok kode:
-
+## 5. Source Code Untuk Pembuatan Donate via Website
+# index.html
 ```python
-# contoh potongan kode
-def encrypt(text, key):
-    return ...
-```
-)
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Luxury Web3 Donation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.9.0/dist/ethers.min.js"></script>
+</head>
+<body>
+
+<div class="bg-orb orb-1"></div>
+<div class="bg-orb orb-2"></div>
+
+<main class="card">
+  <h1>Web3 Donation</h1>
+  <p class="subtitle">Transparan • Aman • Terdesentralisasi</p>
+
+  <div class="input-group">
+    <span>ETH</span>
+    <input type="number" id="amount" placeholder="0.01" step="0.001">
+  </div>
+
+  <button onclick="donate()">Donate Now</button>
+
+  <div id="status"></div>
+
+  <footer>
+    Powered by Ethereum • Sepolia Testnet
+  </footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+```
+
+# style.css
+```python
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Background Orbs */
+.bg-orb {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.45;
+}
+
+.orb-1 {
+  background: #f59e0b;
+  top: -120px;
+  left: -120px;
+}
+
+.orb-2 {
+  background: #38bdf8;
+  bottom: -120px;
+  right: -120px;
+}
+
+/* Card */
+.card {
+  width: 380px;
+  padding: 36px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.55);
+  text-align: center;
+  z-index: 1;
+}
+
+.card h1 {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.subtitle {
+  font-size: 14px;
+  opacity: 0.75;
+  margin-bottom: 28px;
+}
+
+/* Input */
+.input-group {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-bottom: 22px;
+}
+
+.input-group span {
+  font-weight: 600;
+  margin-right: 8px;
+  opacity: 0.9;
+}
+
+.input-group input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 15px;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.35s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(245, 158, 11, 0.45);
+}
+
+/* Status */
+#status {
+  margin-top: 18px;
+  font-size: 14px;
+  min-height: 20px;
+}
+
+/* Footer */
+footer {
+  margin-top: 26px;
+  font-size: 12px;
+  opacity: 0.55;
+}
+
+.donation-stats {
+  background: linear-gradient(135deg, #111, #1f1f1f);
+  border-radius: 16px;
+  padding: 24px;
+  margin: 20px 0;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.donation-stats p {
+  color: #aaa;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.donation-stats h2 {
+  color: gold;
+  font-size: 2.2rem;
+}
+
+.stats {
+  margin-top: 20px;
+  padding: 14px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 14px;
+}
+
+.stats h3 {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+#total {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#history {
+  margin-top: 18px;
+  list-style: none;
+  padding: 0;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+#history li {
+  font-size: 12px;
+  opacity: 0.75;
+  margin-bottom: 6px;
+}
+```
+
+# script.js
+```python
+const contractAddress = "0x8E6e34F439EedE36f4c8fB435511A6BD08E8a259";
+
+const abi = [
+  "function donate() payable",
+  "function totalDonations() view returns (uint256)"
+];
+
+async function donate() {
+  if (!window.ethereum) {
+    alert("MetaMask tidak ditemukan");
+    return;
+  }
+
+  const amount = document.getElementById("amount").value;
+  if (!amount || amount <= 0) {
+    alert("Masukkan jumlah ETH");
+    return;
+  }
+
+  try {
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    await provider.send("eth_requestAccounts", []);
+    const signer = await provider.getSigner();
+
+    const contract = new ethers.Contract(
+      contractAddress,
+      abi,
+      signer
+    );
+
+    document.getElementById("status").innerText =
+      "⏳ Menunggu konfirmasi MetaMask...";
+
+    const tx = await contract.donate({
+      value: ethers.parseEther(amount)
+    });
+
+    document.getElementById("status").innerText =
+      "⛓️ Transaksi diproses di blockchain...";
+
+    await tx.wait();
+
+    document.getElementById("status").innerText =
+      "✅ Donasi berhasil via Smart Contract! 🤍";
+
+  } catch (err) {
+    console.error(err);
+    document.getElementById("status").innerText =
+      "❌ Transaksi dibatalkan / gagal";
+  }
+}
+
+```
 ---
 
 ## 6. Hasil dan Pembahasan
@@ -108,21 +371,20 @@ Hasil eksekusi program Caesar Cipher:
 
 ---
 
-## 9. Daftar Pustaka
-(Cantumkan referensi yang digunakan.  
-Contoh:  
+## 9. Daftar Pustaka 
 - Katz, J., & Lindell, Y. *Introduction to Modern Cryptography*.  
-- Stallings, W. *Cryptography and Network Security*.  )
+- Stallings, W. *Cryptography and Network Security*.
+- https://ethereum.org/en/developers/docs/standards/tokens/erc-20/
+- https://docs.openzeppelin.com/contracts/erc20 
 
 ---
 
 ## 10. Commit Log
-(Tuliskan bukti commit Git yang relevan.  
-Contoh:
-```
-commit abc12345
-Author: Nama Mahasiswa <email>
-Date:   2025-09-20
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+```
+commit week15-tinycoin-erc20
+Author: Ramzi Selpora Widiyanto <rasawi46rsw@gmail.com>
+Date:   2026-01-22
+
+    week15-tinycoin-erc20: Proyek Kelompok – TinyCoin ERC20
 ```
