@@ -404,7 +404,7 @@ Pengujian selanjutnya dilakukan melalui website yang dibangun menggunakan HTML, 
 - Transaksi tidak tercatat di blockchain, meskipun fungsi donate() dipanggil.Ini artinya fungsi donate() maupun yang ada di script.js tidak berfungsi dengan baik.
 Dengan demikian, fungsi donasi tidak berjalan sebagaimana yang diharapkan.
 
-Hasil eksekusi program Caesar Cipher:
+Hasil eksekusi program tiny coin:
 
 ![Hasil Eksekusi](screenshots/webdonate.png)
 
