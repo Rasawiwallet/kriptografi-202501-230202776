@@ -345,35 +345,86 @@ async function donate() {
 ---
 
 ## 6. Hasil dan Pembahasan
-(- Lampirkan screenshot hasil eksekusi program (taruh di folder `screenshots/`).  
+- Lampirkan screenshot hasil eksekusi program (taruh di folder `screenshots/`).  
 - Berikan tabel atau ringkasan hasil uji jika diperlukan.  
 - Jelaskan apakah hasil sesuai ekspektasi.  
 - Bahas error (jika ada) dan solusinya. 
 
+1. Hasil Pengujian Menggunakan Remix IDE
+
+Berdasarkan pengujian yang dilakukan menggunakan Remix IDE, fungsi donasi pada smart contract berhasil dijalankan dengan baik. Proses pengujian dilakukan dengan langkah-langkah sebagai berikut:
+- Smart contract berhasil di-deploy pada jaringan Sepolia Testnet.
+- Pengujian fungsi donate() dilakukan dengan mengisi nilai 0.1 ETH pada kolom Value di Remix IDE.
+- Transaksi berhasil dikonfirmasi oleh MetaMask dan tercatat di blockchain.
+- Nilai donasi yang dikirim dapat diterima oleh smart contract melalui msg.value.
+- Total donasi pada kontrak bertambah sesuai dengan nilai yang dikirim.
+Hasil ini menunjukkan bahwa logika smart contract berjalan dengan benar, termasuk validasi require(msg.value > 0) dan pencatatan transaksi donasi.
+
+2. Hasil Pengujian Menggunakan Website (Frontend)
+
+Pengujian selanjutnya dilakukan melalui website yang dibangun menggunakan HTML, CSS, dan JavaScript (ethers.js). Namun, pada tahap ini ditemukan beberapa kendala, yaitu:
+- Tombol Donate dapat diklik, tetapi transaksi tidak berhasil mengirimkan nilai ETH sesuai input.
+- Transaksi tidak tercatat di blockchain, meskipun fungsi donate() dipanggil.Ini artinya fungsi donate() maupun yang ada di script.js tidak berfungsi dengan baik.
+Dengan demikian, fungsi donasi tidak berjalan sebagaimana yang diharapkan.
+
 Hasil eksekusi program Caesar Cipher:
 
-![Hasil Eksekusi](screenshots/output.png)
-![Hasil Input](screenshots/input.png)
-![Hasil Output](screenshots/output.png)
-)
+![Hasil Eksekusi](screenshots/webdonate.png)
+
 
 ---
 
 ## 7. Jawaban Pertanyaan
-(Jawab pertanyaan diskusi yang diberikan pada modul.  
-- Pertanyaan 1: …  
-- Pertanyaan 2: …  
-)
+
+1. Pertanyaan 1 : Apa fungsi utama ERC20 dalam ekosistem blockchain?
+Jawab :
+ERC-20 berfungsi sebagai standar teknis untuk pembuatan dan pengelolaan token di jaringan Ethereum. Standar ini memastikan bahwa token memiliki antarmuka fungsi yang sama, sehingga dapat digunakan secara kompatibel dengan wallet, exchange, dan aplikasi terdesentralisasi (dApps) tanpa perlu penyesuaian khusus. Dengan ERC-20, pengembang dapat dengan mudah menciptakan token untuk berbagai kebutuhan seperti donasi, utility token, governance token, dan reward system.
+
+Selain itu, ERC-20 mendukung interoperabilitas dalam ekosistem blockchain. Token yang mengikuti standar ini dapat langsung diperdagangkan di decentralized exchange (DEX), disimpan di MetaMask, dan diintegrasikan ke smart contract lain. Hal ini mempercepat adopsi dan mengurangi kompleksitas pengembangan aplikasi blockchain.
+
+2. Pertanyaan 2 :Bagaimana mekanisme transfer token bekerja dalam kontrak ERC20?
+Jawab :
+Mekanisme transfer token ERC-20 dijalankan melalui fungsi transfer() dan transferFrom(). Fungsi transfer() digunakan untuk mengirim token langsung dari pemilik token ke alamat lain, dengan syarat saldo pengirim mencukupi. Ketika transfer berhasil, kontrak akan memperbarui saldo kedua alamat dan memicu event Transfer sebagai bukti transaksi di blockchain.
+
+Sementara itu, transferFrom() bekerja bersama mekanisme approve() dan allowance(). Pemilik token terlebih dahulu memberikan izin kepada pihak lain (misalnya smart contract atau dApp) untuk menggunakan sejumlah token tertentu. Pihak yang diberi izin kemudian dapat mentransfer token sesuai batas yang ditentukan. Mekanisme ini sangat penting untuk donasi otomatis, marketplace, dan DeFi, karena memungkinkan interaksi tanpa harus memindahkan kontrol penuh atas token.
+
+3. Pertanyaan 3 :Apa risiko utama dalam implementasi smart contract dan bagaimana cara mitigasinya?
+Jawab :
+Risiko utama dalam implementasi smart contract ERC-20 meliputi bug kode, kesalahan logika, reentrancy attack, integer overflow/underflow, dan kesalahan kontrol akses. Kesalahan kecil dalam kode dapat menyebabkan hilangnya token secara permanen karena smart contract bersifat immutable setelah dideploy.
+
+Mitigasi risiko dapat dilakukan dengan menggunakan library tepercaya seperti OpenZeppelin, menerapkan audit kode, serta melakukan pengujian menyeluruh di testnet sebelum deploy ke mainnet. Selain itu, penggunaan fitur keamanan modern Solidity seperti checks-effects-interactions pattern, require() untuk validasi, dan pembatasan hak akses (modifier onlyOwner) sangat penting untuk menjaga keamanan kontrak ERC-20.
+
 ---
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
+Berdasarkan hasil pengujian yang telah dilakukan, dapat disimpulkan bahwa Remix IDE berfungsi dengan baik dalam melakukan proses donasi, sedangkan website yang dibangun belum dapat menjalankan fungsi donasi dengan benar.
 
+Pada Remix IDE, transaksi donasi berhasil karena:
+
+1. Nilai ETH (value) dikirim secara eksplisit melalui kolom Value saat memanggil fungsi donate().
+
+2. Kontrak dipanggil secara langsung dengan parameter yang sesuai, sehingga msg.value diterima oleh smart contract.
+
+3. Lingkungan Remix telah terkonfigurasi dengan baik (jaringan Sepolia, akun MetaMask, dan ABI yang sesuai).
+
+Sementara itu, pada website yang dibangun, proses donasi tidak berjalan atau dapat donate karena:
+
+1. Nilai donasi tidak terkirim dengan benar dari frontend ke smart contract.
+
+2. Terjadi kesalahan pada integrasi JavaScript (ethers.js), seperti input nilai yang tidak terbaca, kesalahan konversi ethers.parseEther(), atau script tidak ter-load dengan benar.
+
+3. Validasi jaringan, alamat kontrak, atau ABI belum sepenuhnya sinkron dengan yang digunakan di Remix.
+
+4. Transaksi juga tetap tidak tercatat di blockchain, sehingga fungsi donate() tidak bekerja sebagaimana mestinya.
+
+Dengan demikian, dapat disimpulkan bahwa smart contract tidak bermasalah, namun kendala terdapat pada sisi frontend (website), khususnya pada proses pengiriman nilai ETH dan integrasi dengan MetaMask. Diperlukan perbaikan pada struktur file, pemanggilan fungsi JavaScript, serta validasi input dan jaringan agar website dapat berfungsi sama baiknya seperti Remix IDE.
 ---
 
 ## 9. Daftar Pustaka 
 - Katz, J., & Lindell, Y. *Introduction to Modern Cryptography*.  
 - Stallings, W. *Cryptography and Network Security*.
+- Stallings (2017).
+- Stinson (2019).
 - https://ethereum.org/en/developers/docs/standards/tokens/erc-20/
 - https://docs.openzeppelin.com/contracts/erc20 
 
