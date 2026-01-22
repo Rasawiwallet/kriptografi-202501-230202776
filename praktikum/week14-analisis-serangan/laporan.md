@@ -32,7 +32,7 @@ Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
 ## 4. Langkah Percobaan
 1. Membuat file `bruteforce_sederhana.py` di folder `praktikum/week14-analisis-serangan/src/`.
 2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python bruteforce_sederhana.py`.)
+3. Menjalankan program dengan perintah `python bruteforce_sederhana.py`.
 
 ---
 
