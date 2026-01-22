@@ -53,19 +53,21 @@ Meskipun mudah diimplementasikan keamanan TinyCoin ERC-20 sangat bergantung pada
 
 # Lalu Start Mining, tunggu sampai koin melebihi minimum atau maximum claim
 
-# 6. Langkah selanjutnya kembali ke Remix IDE untuk pengaturan Donate, Pilih Inject Provide- Metamask di dalam Environment dan Masukkan Wallet Addres Sepolia (otomatis mendeteksi account) , pastikan masih value 0 dan wei
+# 6. Langkah selanjutnya kembali ke Remix IDE untuk pengaturan Donate dan membuat smartcontract, Pilih Inject Provide- Metamask di dalam Environment dan Masukkan Wallet Addres Sepolia (otomatis mendeteksi account) , pastikan masih value 0 dan wei.
 ![Hasil Eksekusi](screenshots/remix4.png)
 
-# Setelah ,
+# Setelah konfirmasi akan muncul view code smartcontract
 ![Hasil Eksekusi](screenshots/remix5.png)
 
 # di bawahnya ganti wei menjadi gwei dan pilih berapa Value yang kita mau transaksikan..contoh: 1.000.000 gwei yang nantinya akan menjadi 0.001ETH 
 ![Hasil Eksekusi](screenshots/remix6.png)
 ![Hasil Eksekusi](screenshots/remix7.png)
+
+# 7. Buka link view etherscan yang muncul di terminal...Maka kita akan melihat transaksi keluar di Wallet Sepolia dan transaksi masuk di Balance Smartcontract yang tadi dibuat
 ![Hasil Eksekusi](screenshots/remix8.png)
-# 7. Buka link view etherscan yang muncul di terminal
 ![Hasil Eksekusi](screenshots/remix9.png)
 ![Hasil Eksekusi](screenshots/remix10.png)
+![Hasil Eksekusi](screenshots/remix11.png)
 ---
 
 ## 5. Source Code Untuk Pembuatan Donate via Website
@@ -339,6 +341,41 @@ async function donate() {
     document.getElementById("status").innerText =
       "❌ Transaksi dibatalkan / gagal";
   }
+}
+
+```
+
+# donate.sol
+```python
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+/// @title Donation Smart Contract
+/// @author Ramzi
+/// @notice Contract untuk menerima donasi ETH
+/// @custom:dev-run-script scripts/deploy.js
+contract Donation {
+    address public owner;
+    uint256 public totalDonations;
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    function donate() external payable {
+        require(msg.value > 0, "Donation must be greater than 0");
+        totalDonations += msg.value;
+    }
+
+    function withdraw() external {
+        require(msg.sender == owner, "Not owner");
+
+        uint256 balance = address(this).balance;
+        require(balance > 0, "No funds");
+
+        (bool success, ) = payable(owner).call{value: balance}("");
+        require(success, "ETH transfer failed");
+    }
 }
 
 ```
