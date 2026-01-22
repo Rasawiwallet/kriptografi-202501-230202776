@@ -1,14 +1,17 @@
 # Laporan Praktikum Kriptografi
-Minggu ke-: X  
-Topik: [judul praktikum]  
-Nama: [Nama Mahasiswa]  
-NIM: [NIM Mahasiswa]  
-Kelas: [Kelas]  
+Minggu ke-: 15
+Topik: [Proyek Kelompok – TinyCoin ERC20]  
+Nama: [Ramzi Selpora Widiyanto]  
+NIM: [230202776]  
+Kelas: [5IKKA]  
 
 ---
 
 ## 1. Tujuan
-(Tuliskan tujuan pembelajaran praktikum sesuai modul.)
+Setelah mengikuti praktikum ini, mahasiswa diharapkan mampu:
+1. Mengembangkan proyek sederhana berbasis algoritma kriptografi.
+2. Mendokumentasikan proses implementasi proyek ke dalam repository Git.
+3. Menyusun laporan teknis hasil proyek akhir.
 
 ---
 
