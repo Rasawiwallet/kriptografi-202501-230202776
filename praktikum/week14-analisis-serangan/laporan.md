@@ -22,19 +22,17 @@ Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
 ---
 
 ## 3. Alat dan Bahan
-(- Python 3.x  
+- Python 3.x  
 - Visual Studio Code / editor lain  
 - Git dan akun GitHub  
-- Library tambahan (misalnya pycryptodome, jika diperlukan)  )
+- Library tambahan (misalnya pycryptodome, jika diperlukan)
 
 ---
 
 ## 4. Langkah Percobaan
-(Tuliskan langkah yang dilakukan sesuai instruksi.  
-Contoh format:
-1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
+1. Membuat file `bruteforce_sederhana.py` di folder `praktikum/week14-analisis-serangan/src/`.
 2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python caesar_cipher.py`.)
+3. Menjalankan program dengan perintah `python bruteforce_sederhana.py`.)
 
 ---
 
