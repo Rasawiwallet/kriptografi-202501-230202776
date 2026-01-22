@@ -40,32 +40,32 @@ Meskipun mudah diimplementasikan keamanan TinyCoin ERC-20 sangat bergantung pada
 # 2. Membuat Akun Metamask dan mendownload add on nya
 
 # 3. Buka dan siapkan file `Donation.sol`untuk di simpan di dalam Remix IDE https://remix.ethereum.org 
-(screenshots/remix1.png)
+![Hasil Eksekusi](screenshots/remix1.png)
 
 # 4. Masuk ke menu Solidity Compiler , lalu Compile and Run Script
-(screenshots/remix2.png)
+![Hasil Eksekusi](screenshots/remix2.png)
 
 # 5. Jika sudah membuat dan memiliki Metamask, langkah selanjutnya adalah ganti netwok di metamask menjadi Sepolia. Kemudian copy dan paste wallet addres ke dalam web ini https://sepolia-faucet.pk910.de/#/
-(screenshots/ether.png)
-(screenshots/mining1.png)
-(screenshots/mining2.png)
-(screenshots/mining3.png)
+![Hasil Eksekusi](screenshots/ether.png)
+![Hasil Eksekusi](screenshots/mining1.png)
+![Hasil Eksekusi](screenshots/mining2.png)
+![Hasil Eksekusi](screenshots/mining3.png)
 
 # Lalu Start Mining, tunggu sampai koin melebihi minimum atau maximum claim
 
 # 6. Langkah selanjutnya kembali ke Remix IDE untuk pengaturan Donate, Pilih Inject Provide- Metamask di dalam Environment dan Masukkan Wallet Addres Sepolia (otomatis mendeteksi account) , pastikan masih value 0 dan wei
-(screenshots/remix4.png)
+![Hasil Eksekusi](screenshots/remix4.png)
 
 # Setelah ,
-(screenshots/remix5.png)
+![Hasil Eksekusi](screenshots/remix5.png)
 
 # di bawahnya ganti wei menjadi gwei dan pilih berapa Value yang kita mau transaksikan..contoh: 1.000.000 gwei yang nantinya akan menjadi 0.001ETH 
-(screenshots/remix6.png)
-(screenshots/remix7.png)
-(screenshots/remix8.png)
+![Hasil Eksekusi](screenshots/remix6.png)
+![Hasil Eksekusi](screenshots/remix7.png)
+![Hasil Eksekusi](screenshots/remix8.png)
 # 7. Buka link view etherscan yang muncul di terminal
-(screenshots/remix9.png)
-(screenshots/remix10.png)
+![Hasil Eksekusi](screenshots/remix9.png)
+![Hasil Eksekusi](screenshots/remix10.png)
 ---
 
 ## 5. Source Code Untuk Pembuatan Donate via Website
