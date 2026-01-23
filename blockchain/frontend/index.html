@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>TinyChain DApp</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/ethers@6.9.0/dist/ethers.min.js"></script>
+</head>
+<body>
+<div class="card">
+<h1>💎 TinyChain</h1>
+<button onclick="connectWallet()">Connect Wallet</button>
+
+
+<h3>Transfer TinyCoin</h3>
+<input id="to" placeholder="Alamat Tujuan" />
+<input id="amount" placeholder="Jumlah TINY" />
+<button onclick="sendToken()">Kirim</button>
+
+
+<p id="status"></p>
+</div>
+
+
+<script src="app.js"></script>
+</body>
+</html>
